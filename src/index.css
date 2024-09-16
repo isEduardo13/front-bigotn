@@ -1,13 +1,71 @@
+/* Estilos generales */
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  background-color: #f8f9fa; /* Fondo claro para el sitio */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Navbar */
+.navbar {
+  background-color: #343a40; /* Color de fondo del navbar (más oscuro) */
 }
+
+.navbar-brand {
+  font-size: 1.8rem; /* Tamaño del texto del logo */
+  color: white; /* Color del logo */
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #f0f0f0; /* Color al pasar el ratón sobre el logo */
+}
+
+.nav-link {
+  color: white; /* Color de los enlaces */
+  font-size: 1.2rem; /* Tamaño de los enlaces */
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.nav-link:hover {
+  color: lightgray; /* Color de los enlaces al pasar el ratón */
+}
+
+.navbar-toggler {
+  border-color: white; /* Color del borde del botón hamburguesa en móvil */
+}
+
+.navbar-toggler-icon {
+  background-color: white; /* Color del ícono de la barra en pantallas pequeñas */
+}
+
+/* Footer */
+footer {
+  background-color: #343a40; /* Color de fondo del footer (oscuro) */
+  color: white; /* Color del texto */
+  text-align: center;
+  padding: 20px 0; /* Espacio vertical en el footer */
+}
+
+footer p {
+  margin: 0;
+}
+
+footer p:first-child {
+  font-size: 1.2rem; /* Tamaño del texto de derechos de autor */
+}
+
+footer p:last-child {
+  font-size: 1rem; /* Tamaño del texto del equipo */
+}
+
+/* Para que el footer siempre esté al final si hay poco contenido */
+html, body {
+  height: 100%;
+}
+
+#root {
+  min-height: calc(100vh - 120px); /* Asegura que el contenido ocupe la pantalla */
+}
+
