@@ -1,125 +1,94 @@
+/* Reset de márgenes y paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Estilos generales */
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f8f9fa; /* Fondo claro para el sitio */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-header{
-  width: 100%;
-  height: auto;
-  top: 0;
-  left: 0;
-  position: fixed;
-  z-index: 1000;
+/* Navbar (header) */
+header {
+  background-color: #000; /* Fondo negro */
 }
 
-header.scrolled {
-  background:  #343a40;/* Cambia el color de la navegación al hacer scroll */
-}
-
-/* Navbar */
 .navbar {
-  background-color: #343a40; 
-  /* Color de fondo del navbar (más oscuro) */
+  background-color: #000; /* Fondo negro para la navbar */
 }
 
-.navbar-brand {
-  font-size: 1.8rem; /* Tamaño del texto del logo */
-  color: white; /* Color del logo */
+.navbar .navbar-brand {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.navbar .nav-link {
+  color: #ccc;
+  padding: 10px;
   text-decoration: none;
 }
 
-.navbar-brand:hover {
-  color: #f0f0f0; /* Color al pasar el ratón sobre el logo */
-}
-
-.nav-link {
-  color: white; /* Color de los enlaces */
-  font-size: 1.2rem; /* Tamaño de los enlaces */
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-.nav-link:hover {
-  color: lightgray; /* Color de los enlaces al pasar el ratón */
-}
-
-.navbar-toggler {
-  border-color: white; /* Color del borde del botón hamburguesa en móvil */
-}
-
-.navbar-toggler-icon {
-  background-color: white; /* Color del ícono de la barra en pantallas pequeñas */
-}
-
-/* Inicio */
-#inicio {
-  position: relative;
-  height: 100vh;
-  background: url(./assets/images/fondo.jpg) no-repeat center center/cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.navbar .nav-link.active {
   color: #fff;
+  font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+  color: #fff;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: space-between; /* Distribuye el contenido */
+  align-items: center;
+}
+
+.navbar-nav {
+  margin-left: auto; /* Alinea los enlaces hacia la derecha */
+  display: flex;
+  gap: 20px; /* Añade espacio entre los enlaces */
+}
+
+/* Sección de bienvenida (#inicio) */
+#inicio {
   text-align: center;
+  padding: 50px;
+  background-color: #f8f9fa;
 }
 
-#inicio::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad y el color aquí */
-  z-index: 1;
+#inicio h2 {
+  font-size: 2rem;
+  color: #333;
 }
 
-#inicio h1,
-#inicio h2,
-#inicio p {
-  position: relative;
-  z-index: 2;
+#inicio h1#dynamic-text {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-top: 20px;
 }
 
-#inicio h1 {
-  font-size: 3em;
-  margin: 0;
-}
-
-#inicio p {
-  font-size: 1.5em;
+/* Contenido principal */
+#root {
+  flex: 1;
+  padding: 20px;
+  background-color: #f8f9fa;
 }
 
 /* Footer */
 footer {
-  background-color: #343a40; /* Color de fondo del footer (oscuro) */
-  color: white; /* Color del texto */
+  background-color: #000; /* Fondo negro */
+  color: #fff;
+  padding: 10px 0;
   text-align: center;
-  padding: 20px 0; /* Espacio vertical en el footer */
+  margin-top: auto;
 }
 
 footer p {
-  margin: 0;
+  margin: 5px 0;
 }
-
-footer p:first-child {
-  font-size: 1.2rem; /* Tamaño del texto de derechos de autor */
-}
-
-footer p:last-child {
-  font-size: 1rem; /* Tamaño del texto del equipo */
-}
-
-/* Para que el footer siempre esté al final si hay poco contenido */
-html, body {
-  height: 100%;
-}
-
-#root {
-  min-height: calc(100vh - 120px); /* Asegura que el contenido ocupe la pantalla */
-}
-
