@@ -6,9 +6,23 @@ body {
   background-color: #f8f9fa; /* Fondo claro para el sitio */
 }
 
+header{
+  width: 100%;
+  height: auto;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 1000;
+}
+
+header.scrolled {
+  background:  #343a40;/* Cambia el color de la navegación al hacer scroll */
+}
+
 /* Navbar */
 .navbar {
-  background-color: #343a40; /* Color de fondo del navbar (más oscuro) */
+  background-color: #343a40; 
+  /* Color de fondo del navbar (más oscuro) */
 }
 
 .navbar-brand {
@@ -38,6 +52,46 @@ body {
 
 .navbar-toggler-icon {
   background-color: white; /* Color del ícono de la barra en pantallas pequeñas */
+}
+
+/* Inicio */
+#inicio {
+  position: relative;
+  height: 100vh;
+  background: url(./assets/images/fondo.jpg) no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+#inicio::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad y el color aquí */
+  z-index: 1;
+}
+
+#inicio h1,
+#inicio h2,
+#inicio p {
+  position: relative;
+  z-index: 2;
+}
+
+#inicio h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+#inicio p {
+  font-size: 1.5em;
 }
 
 /* Footer */
