@@ -5,7 +5,6 @@ import CitaForm from './components/AgregarCita';
 import ListCitaComponent from './components/ListCitaComponent'; // Mantener el componente de la otra rama
 
 import './App.css'; // Importar los estilos que faltan
-import './citas.css';
 
 function App() {
     return (

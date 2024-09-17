@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Header from './HeadComponent';  // Importa el Header reutilizable
+import Footer from './FootComponent'; 
 import CitaService from '../services/CitaService'; // Importa tu servicio
 
 const CitaForm = () => {
@@ -43,6 +45,9 @@ const CitaForm = () => {
     };
 
     return (
+        <>
+            <Header /> {/* Añadir el Header reutilizable */}
+
         <form onSubmit={handleSubmit}>
             <label>
                 Fecha:
@@ -66,8 +71,12 @@ const CitaForm = () => {
                 <input type="text" value={barbero} onChange={(e) => setBarbero(e.target.value)} />
             </label>
             
-            <button type="submit">Crear Cita</button>
         </form>
+        <button type="submit" className="btn btn-success mt-3">Crear Cita</button>
+
+        <Footer /> {/* Añadir el Footer reutilizable */}
+
+        </>
     );
 };
 

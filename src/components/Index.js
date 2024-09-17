@@ -1,11 +1,19 @@
-// Inicio.js
 import React from 'react';
+import Header from './HeadComponent';  // Importa el Header reutilizable
+import Footer from './FootComponent';  // Importa el Footer reutilizable
+import '../Inicio.css';  // Mantén el CSS vinculado
 
 const Inicio = () => (
-  <div>
-    <h1>Bienvenido a El Mapache Bigoton</h1>
-    <p>Por que tu mereces lo mejor</p>
-  </div>
+  <>
+    <Header /> {/* Añadir el Header reutilizable */}
+
+    <main>
+      <h1>Bienvenido a El Mapache Bigotón</h1>
+      <p>Porque tú mereces lo mejor</p>
+    </main>
+
+    <Footer /> {/* Añadir el Footer reutilizable */}
+  </>
 );
 
 export default Inicio;

@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const URL_BASE = "http://localhost:8080/cita";
-
 class CitaService{
     findAll(){
         return axios.get(URL_BASE);
@@ -15,7 +14,7 @@ class CitaService{
         return axios.get(URL_BASE+'/'+idCita);
     }
 
-    create(citaData){
+    createCita(citaData){
         return axios.post(URL_BASE, citaData);
     }
 
