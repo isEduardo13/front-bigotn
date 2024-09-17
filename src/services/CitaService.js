@@ -2,16 +2,35 @@ import axios from "axios";
 
 const URL_BASE = "http://localhost:8080/cita";
 
-class CitaService {
-    // Método para obtener todas las citas
-    findAll() {
+class CitaService{
+    findAll(){
         return axios.get(URL_BASE);
     }
 
-    // Método para crear una cita
-    createCita(citaData) {
+    findAllQueries(){
+        return axios.get(URL_BASE+'/consulta');
+    }
+
+    findById(idCita){
+        return axios.get(URL_BASE+'/'+idCita);
+    }
+
+    create(citaData){
         return axios.post(URL_BASE, citaData);
     }
+
+    update(idCita, cita){
+        return axios.put(URL_BASE+'/'+idCita, cita);
+    }
+
+    delete(idCita){ 
+        return axios.delete(URL_BASE+'/'+idCita);
+    }
+
+    query(idCita){
+        return axios.get(URL_BASE+'/consulta/'+idCita);
+    }
+
 }
 
 export default new CitaService();
