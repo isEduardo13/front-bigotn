@@ -184,7 +184,7 @@ tr:nth-child(even) {
   }
   
   /* Ajuste para que el botón se vea mejor al final de la página */
-  .text-end .btn {
+  .text-end {
     margin-top: 20px;
   }
 
@@ -206,7 +206,7 @@ form {
     border-radius: 10px;       /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombras suaves */
   }
-  
+    
   /* Estilo para las etiquetas */
   label {
     display: block;
@@ -263,8 +263,8 @@ form {
   /* Espaciado adicional para el botón */
   button[type="submit"] {
     margin-top: 30px;
-    margin-left: 45%;          /*Separar el botón del formulario*/
-    width: 10%;               /* Botón ocupa el ancho completo */
+    margin-left: 10%;          /*Separar el botón del formulario*/
+    width: 80%;               /* Botón ocupa el ancho completo */
   }
   
 
