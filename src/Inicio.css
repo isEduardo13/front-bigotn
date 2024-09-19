@@ -69,7 +69,8 @@ body {
 
 /* Estilos del main */
 main {
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    height: 100vh;
     background: url("../src/assets/images/fondo.jpg") no-repeat center center/cover;
     /* Imagen de fondo */
     display: flex;
@@ -262,7 +263,7 @@ form {
   /* Espaciado adicional para el botón */
   button[type="submit"] {
     margin-top: 30px;
-    margin-left: 45%;          /* Separar el botón del formulario */
+    margin-left: 45%;          /*Separar el botón del formulario*/
     width: 10%;               /* Botón ocupa el ancho completo */
   }
   
