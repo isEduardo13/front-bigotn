@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Header from './HeadComponent';  // Importa el Header reutilizable
-import Footer from './FootComponent'; 
+import Footer from './FootComponent';
 import CitaService from '../services/CitaService'; // Importa tu servicio
 
 const CitaForm = () => {
     const [fecha, setFecha] = useState('');
     const [hora, setHora] = useState('');
-    const [servicio1, setServicio1] = useState('');
-    const [cliente, setCliente] = useState('');
-    const [barbero, setBarbero] = useState('');
+    const [servicio1, setServicio1] = useState({});
+    const [cliente, setCliente] = useState({});
+    const [barbero, setBarbero] = useState({});
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -48,33 +48,32 @@ const CitaForm = () => {
         <>
             <Header /> {/* Añadir el Header reutilizable */}
 
-        <form onSubmit={handleSubmit}>
-            <label>
-                Fecha:
-                <input type="date" value={fecha} onChange={(e) => setFecha(e.target.value)} />
-            </label>
-            <label>
-                Hora:
-                <input type="time" value={hora} onChange={(e) => setHora(e.target.value)} />
-            </label>
-            <label>
-                Servicio 1:
-                <input type="text" value={servicio1} onChange={(e) => setServicio1(e.target.value)} />
-            </label>
-            
-            <label>
-                Cliente:
-                <input type="text" value={cliente} onChange={(e) => setCliente(e.target.value)} />
-            </label>
-            <label>
-                Barbero:
-                <input type="text" value={barbero} onChange={(e) => setBarbero(e.target.value)} />
-            </label>
-            
-        </form>
-        <button type="submit" className="btn btn-success mt-3">Crear Cita</button>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Fecha:
+                    <input type="date" value={fecha} onChange={(e) => setFecha(e.target.value)} />
+                </label>
+                <label>
+                    Hora:
+                    <input type="time" value={hora} onChange={(e) => setHora(e.target.value)} />
+                </label>
+                <label>
+                    Servicio 1:
+                    <input type="text" value={servicio1} onChange={(e) => setServicio1(e.target.value)} />
+                </label>
 
-        <Footer /> {/* Añadir el Footer reutilizable */}
+                <label>
+                    Cliente:
+                    <input type="text" value={cliente} onChange={(e) => setCliente(e.target.value)} />
+                </label>
+                <label>
+                    Barbero:
+                    <input type="text" value={barbero} onChange={(e) => setBarbero(e.target.value)} />
+                </label>
+                <button type="submit" className="btn btn-success mt-3">Crear Cita</button>
+            </form>
+
+            <Footer /> {/* Añadir el Footer reutilizable */}
 
         </>
     );
