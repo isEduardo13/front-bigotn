@@ -37,6 +37,7 @@ export default function ListCitaComponent() {
       <div className="contenedor">
         <div className="citas">
           <h2 className="text-center fs-1 fw-bold mb-3">Citas</h2>
+          <br></br>
           <table className="table table-striped"> {/* Añadir clase para estilos básicos */}
             <thead>
               <tr>
@@ -72,10 +73,13 @@ export default function ListCitaComponent() {
               ))}
             </tbody>
           </table>
+            <br></br>
+          <div className="text-center">
+            
+            <a href="/agregar-cita" className="btn btn-success">Agregar cita</a>
+          </div>
         </div>
-        <div className="text-center">
-          <a href="/agregar-cita" className="btn btn-success">Agregar cita</a>
-        </div>
+
       </div>
       <Footer /> {/* Añadir el Footer reutilizable */}
     </>

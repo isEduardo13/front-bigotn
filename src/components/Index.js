@@ -6,12 +6,12 @@ import '../Inicio.css';  // Mantén el CSS vinculado
 const Inicio = () => (
   <>
     <Header /> {/* Añadir el Header reutilizable */}
-
-    <main>
-      <h1>Bienvenido a El Mapache Bigotón</h1>
-      <p>Porque tú mereces lo mejor</p>
-    </main>
-
+    <div className='inicio'>
+      <main>
+        <h1>Bienvenido a El Mapache Bigotón</h1>
+        <p>Porque tú mereces lo mejor</p>
+      </main>
+    </div>
     <Footer /> {/* Añadir el Footer reutilizable */}
   </>
 );
