@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 import Header from './HeadComponent';  // Importa el Header reutilizable
 import Footer from './FootComponent';
 import CitaService from '../services/CitaService'; // Importa tu servicio
+import useServicios from  '../hooks/useServicios'; 
 
 const CitaForm = () => {
     const [fecha, setFecha] = useState('');
@@ -9,6 +10,11 @@ const CitaForm = () => {
     const [servicio1, setServicio1] = useState('');
     const [cliente, setCliente] = useState('');
     const [barbero, setBarbero] = useState('');
+    const { servicios, error} = useServicios();
+
+    if (error) {
+    console.error('Error al obtener los servicios:', error);
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -58,11 +64,15 @@ const CitaForm = () => {
                         Hora:
                         <input type="time" value={hora} onChange={(e) => setHora(e.target.value)} />
                     </label>
-                    <label>
-                        Servicio 1:
-                        <input type="text" value={servicio1} onChange={(e) => setServicio1(e.target.value)} />
-                    </label>
-
+                    <div className="mb-3">
+                        <label className="form-label">Servicio:</label>
+                        <select className="form-select" value={servicio1} onChange={(e) => setServicio1(e.target.value)}>
+                            <option value="">Seleccione un servicio</option>
+                            {servicios.map((servicio) => (
+                                <option key={servicio.idServicio} value={servicio.idServicio}>{servicio.descripcion}</option>
+                            ))}
+                        </select>
+                    </div>
                     <label>
                         Cliente:
                         <input type="text" value={cliente} onChange={(e) => setCliente(e.target.value)} />
