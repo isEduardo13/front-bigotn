@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Header from './HeadComponent';  // Importa el Header reutilizable
-import Footer from './FootComponent';
 import CitaService from '../services/CitaService'; // Importa tu servicio
 import useServicios from '../hooks/useServicios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import useSucursal from '../hooks/useSucursal';
 
 const CitaForm = () => {
     const [fecha, setFecha] = useState('');
@@ -12,10 +12,12 @@ const CitaForm = () => {
     const [cliente, setCliente] = useState('');
     const [telefono, setTelefono] = useState(''); // Agregado para el teléfono
     const [barbero, setBarbero] = useState('');
-    const { servicios, error } = useServicios();
-
-    if (error) {
-        console.error('Error al obtener los servicios:', error);
+    const { servicios, errorServicio } = useServicios();
+    const { sucursales, errorSucursal } = useSucursal();
+    const [sucursal, setSucursal] = useState(''); 
+    if (errorServicio || errorSucursal) {
+        console.error('Error al obtener los servicios:', errorServicio);
+        console.error('Error al obtener las sucursales:', errorSucursal);
     }
 
     const handleSubmit = async (event) => {
@@ -58,12 +60,13 @@ const CitaForm = () => {
                     <div className="row mb-3">
                         <div className="col-md-8">
                             <h2 aria-label="Sucursal">Sucursal</h2>
-                            <select className="form-select" size="3" aria-label="size 3 select example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                            <select className="form-select" size="3"  value={sucursal} onChange={(e) => setSucursal.tarjet.value}>
+                                <option selected>Seleccione la sucursal</option>
+                                {sucursales.map((sucursal) => (
+                                    <option key={sucursal.idSucursal} value={sucursal.idSucursal}>{sucursal.direccion}</option>
+                                ))}
+
+                            </select>   
                         </div>
                         <div className="col-md-4">
                             <div>
@@ -78,8 +81,7 @@ const CitaForm = () => {
                     </div>
                     <h2>Servicios</h2>
                     <div className="border p-3">
-                        <select className="form-select" value={servicio1} onChange={(e) => setServicio1(e.target.value)}>
-                            <option value="">Seleccione un servicio</option>
+                        <select className="form-select" size="3" value={servicio1} onChange={(e) => setServicio1(e.target.value)}>
                             {servicios.map((servicio) => (
                                 <option key={servicio.idServicio} value={servicio.idServicio}>{servicio.descripcion}</option>
                             ))}
@@ -87,15 +89,15 @@ const CitaForm = () => {
                     </div>
                     <div className="row">
                         <div className="col-md-6">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Cliente</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" />
+                            <div classNam="mb-3">
+                                <label for="formGroupExampleInput" className="form-label">Cliente</label>
+                                <input type="text" className="form-control" id="formGroupExampleInput" placeholder="" />
                             </div>
                         </div>
                         <div className="col-md-6">
-                        <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Telefono</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" />
+                        <div className="mb-3">
+                                <label for="formGroupExampleInput" className="form-label">Telefono</label>
+                                <input type="text" className="form-control" id="formGroupExampleInput" placeholder="" />
                             </div>
                         </div>
                     </div>
